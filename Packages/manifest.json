@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "com.unity.render-pipelines.universal": "17.0.3",
-    "jp.keijiro.klak.hap": "0.1.20",
-    "com.unity.modules.uielements": "1.0.0"
+    "com.unity.inputsystem": "1.18.0",
+    "com.unity.render-pipelines.universal": "17.3.0",
+    "jp.keijiro.klak.hap": "file:../../KlakHap/Packages/jp.keijiro.klak.hap"
   },
   "scopedRegistries": [
     {
