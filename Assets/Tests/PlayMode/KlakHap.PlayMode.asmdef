@@ -1,0 +1,15 @@
+{
+  "name": "KlakHap.PlayMode",
+  "references": [
+    "Klak.Hap",
+    "UnityEngine.TestRunner"
+  ],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "testAssemblies": true
+}
