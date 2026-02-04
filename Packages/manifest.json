@@ -2,7 +2,8 @@
   "dependencies": {
     "com.unity.inputsystem": "1.18.0",
     "com.unity.render-pipelines.universal": "17.3.0",
-    "jp.keijiro.klak.hap": "file:../../KlakHap/Packages/jp.keijiro.klak.hap"
+    "jp.keijiro.klak.hap": "file:../../KlakHap/Packages/jp.keijiro.klak.hap",
+    "com.unity.modules.imageconversion": "1.0.0"
   },
   "scopedRegistries": [
     {

@@ -1,11 +1,26 @@
 #!/usr/bin/env python3
-import argparse
 import math
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 from fractions import Fraction
+
+# Configuration
+OUT_DIR = "Assets/StreamingAssets/RGBCycle"
+SIZE = "256x256"
+DURATION = 3.0
+
+FPS_LIST = [
+    "24",
+    "24000/1001",
+    "25",
+    "30",
+    "30000/1001",
+    "50",
+    "60",
+    "60000/1001",
+]
 
 def run(cmd):
     result = subprocess.run(cmd, check=False)
@@ -80,62 +95,33 @@ def parse_size(value):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Generate HAP codec test videos with RGB frame cycling."
-    )
-    parser.add_argument(
-        "--out-dir",
-        default="HapTestVideos",
-        help="Output directory for videos and assets.",
-    )
-    parser.add_argument(
-        "--size",
-        default="256x256",
-        help="Frame size, e.g. 1920x1080.",
-    )
-    parser.add_argument(
-        "--duration",
-        type=float,
-        default=3.0,
-        help="Duration in seconds for each video.",
-    )
-    args = parser.parse_args()
-
     ensure_ffmpeg()
 
-    out_dir = Path(args.out_dir)
+    out_dir = Path(OUT_DIR)
     work_dir = out_dir / "_work"
     png_dir = work_dir / "png"
 
-    size = parse_size(args.size)
+    size = parse_size(SIZE)
 
     png_dir.mkdir(parents=True, exist_ok=True)
     make_color_pngs(png_dir, size)
 
-    fps_list = [
-        "24",
-        "24000/1001",
-        "25",
-        "30",
-        "30000/1001",
-        "50",
-        "60",
-        "60000/1001",
-    ]
-
-    for fps in fps_list:
+    for fps in FPS_LIST:
         fps_label = sanitize_fps_label(fps)
         frames_dir = work_dir / f"frames_{fps_label}"
         if frames_dir.exists():
             shutil.rmtree(frames_dir)
 
         fps_value = float(Fraction(str(fps)))
-        frame_count = max(1, int(math.ceil(fps_value * args.duration)))
+        frame_count = max(1, int(math.ceil(fps_value * DURATION)))
         make_frame_sequence(png_dir, frames_dir, frame_count)
 
-        output_path = out_dir / f"rgb_cycle_{fps_label}.mov"
+        output_path = out_dir / f"RGBCycle{fps_label}.mov"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         encode_video(frames_dir, fps, output_path)
+
+    if work_dir.exists():
+        shutil.rmtree(work_dir)
 
     print(f"Done. Videos written to {out_dir}")
 
