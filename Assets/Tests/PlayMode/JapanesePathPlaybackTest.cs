@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 
 public sealed class JapanesePathPlaybackTest
 {
-    const string TestPath = "日本語/ColorBar.mov";
+    const string TestPath = "日本語/Test.mov";
 
     [UnityTest]
     public IEnumerator CanPlayHapInJapanesePath()
