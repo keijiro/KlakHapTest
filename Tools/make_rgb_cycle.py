@@ -7,7 +7,7 @@ from pathlib import Path
 from fractions import Fraction
 
 # Configuration
-OUT_DIR = "Assets/StreamingAssets/RGBCycle"
+OUT_DIR = "Assets/StreamingAssets/Tests/RGBCycle"
 SIZE = "256x256"
 DURATION = 3.0
 

@@ -8,14 +8,14 @@ public sealed class RgbCycleFrameMappingTest
 {
     static readonly string[] TestPaths =
     {
-        "RGBCycle/RGBCycle24.mov",
-        "RGBCycle/RGBCycle24000-1001.mov",
-        "RGBCycle/RGBCycle25.mov",
-        "RGBCycle/RGBCycle30.mov",
-        "RGBCycle/RGBCycle30000-1001.mov",
-        "RGBCycle/RGBCycle50.mov",
-        "RGBCycle/RGBCycle60.mov",
-        "RGBCycle/RGBCycle60000-1001.mov"
+        "Tests/RGBCycle/RGBCycle24.mov",
+        "Tests/RGBCycle/RGBCycle24000-1001.mov",
+        "Tests/RGBCycle/RGBCycle25.mov",
+        "Tests/RGBCycle/RGBCycle30.mov",
+        "Tests/RGBCycle/RGBCycle30000-1001.mov",
+        "Tests/RGBCycle/RGBCycle50.mov",
+        "Tests/RGBCycle/RGBCycle60.mov",
+        "Tests/RGBCycle/RGBCycle60000-1001.mov"
     };
 
     enum RgbExpected { Red, Green, Blue }

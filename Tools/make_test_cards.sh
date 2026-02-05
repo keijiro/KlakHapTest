@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OUT_DIR="${1:-Assets/StreamingAssets/TestCards}"
+OUT_DIR="${1:-Assets/StreamingAssets/Tests/TestCards}"
 SIZE="${SIZE:-512x512}"
 FPS="${FPS:-1}"
 

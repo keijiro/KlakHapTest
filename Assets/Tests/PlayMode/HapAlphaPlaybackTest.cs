@@ -7,8 +7,8 @@ using UnityEngine.TestTools;
 
 public sealed class HapAlphaPlaybackTest
 {
-    const string MoviePath = "HapAlpha/HapAlpha.mov";
-    const string FramesDirName = "HapAlpha";
+    const string MoviePath = "Tests/HapAlpha/HapAlpha.mov";
+    const string FramesDirName = "Tests/HapAlpha";
     const string ExpectedFrame = "000001.png";
 
     const float MatchThreshold = 0.99f;

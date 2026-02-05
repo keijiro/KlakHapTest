@@ -7,8 +7,8 @@ using UnityEngine.TestTools;
 
 public sealed class TestCardsPlaybackTest
 {
-    const string MoviePath = "TestCards/TestCards.mov";
-    const string FramesDirName = "TestCards";
+    const string MoviePath = "Tests/TestCards/TestCards.mov";
+    const string FramesDirName = "Tests/TestCards";
 
     const float MatchThreshold = 0.99f;
     const float ChannelTolerance = 0.08f;

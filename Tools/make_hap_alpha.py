@@ -7,7 +7,7 @@ import zlib
 from pathlib import Path
 from struct import pack
 
-OUT_DIR = Path("Assets/StreamingAssets/HapAlpha")
+OUT_DIR = Path("Assets/StreamingAssets/Tests/HapAlpha")
 SIZE = 256
 
 MOV_NAME = "HapAlpha.mov"
