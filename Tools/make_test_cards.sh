@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OUT_DIR="${1:-Assets/StreamingAssets/Tests/TestCards}"
+OUT_DIR="${1:-Assets/StreamingAssets/Tests/Hap}"
+HAPQ_DIR="${HAPQ_DIR:-Assets/StreamingAssets/Tests/HapQ}"
 SIZE="${SIZE:-512x512}"
 FPS="${FPS:-1}"
 
@@ -29,6 +30,7 @@ make_png 4 "smptehdbars"
 make_png 5 "yuvtestsrc"
 
 mkdir -p "${OUT_DIR}"
+mkdir -p "${HAPQ_DIR}"
 
 ffmpeg -y -framerate "${FPS}" -i "%06d.png" \
   -c:v hap -pix_fmt rgba \
@@ -37,6 +39,14 @@ ffmpeg -y -framerate "${FPS}" -i "%06d.png" \
 ffmpeg -y -i "${OUT_DIR}/TestCards.mov" \
   -pix_fmt rgba -color_range pc \
   "${OUT_DIR}/%06d.png"
+
+ffmpeg -y -framerate "${FPS}" -i "%06d.png" \
+  -c:v hap -format hap_q -pix_fmt rgba \
+  "${HAPQ_DIR}/TestCards.mov"
+
+ffmpeg -y -i "${HAPQ_DIR}/TestCards.mov" \
+  -pix_fmt rgba -color_range pc \
+  "${HAPQ_DIR}/%06d.png"
 
 rm -f 000001.png 000002.png 000003.png 000004.png 000005.png
 
